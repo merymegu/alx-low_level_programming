@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 /**
 * main - causes an infinite loop
@@ -16,4 +15,3 @@ i = 0;
 printf("Infinite loop avoided! \\o/\n");
 return (0);
 }
-
