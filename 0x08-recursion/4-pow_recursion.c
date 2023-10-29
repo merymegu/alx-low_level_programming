@@ -1,9 +1,9 @@
 #include "main.h"
 /**
   * _pow_recursion - function name
-  * @x: parameter 1
-  * @y: parameter 2
-  * Return: value of a given number passed to the function
+  * @x: base  1
+  * @y: exposant  2
+  * Return: value of a exposant
   */
 
 
@@ -15,7 +15,8 @@ if (y < 0)
 
 else if (y == 0)
         return (1);
-
+else if (y==1)
+	return (x);
 else
         return (x * _pow_recursion(x, (y - 1)));
 
