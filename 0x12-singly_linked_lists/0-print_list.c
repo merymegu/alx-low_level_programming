@@ -1,28 +1,26 @@
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * add_node_end - Adds a new node at the end of a list
- *@head: pointer to the head of the list
- *@str: string to be added to the list
+ * print_list - prints all the elements of a linked list
+ * @h: pointer to the list_t list to print
  *
- *Return: NULL in case of failure
- *or address or the element
-*/
-
-list_t *add_node_end(list_t **head, const char *str)
+ * Return: the number of nodes printed
+ */
+size_t print_list(const list_t *h)
 {
-	char *dup;
-	int len;
-	list_t *new, *last;
+	size_t s = 0;
 
-	new = malloc(sizeof(list_t));
-	if (new == NULL)
-		return (NULL);
-
-	dup = strdup(str);
-	if (str == NULL)
+	while (h)
 	{
-		free(new);
-		return (NULL);
+		if (!h->str)
+			printf("[0] (nil)\n");
+		else
+			printf("[%u] %s\n", h->len, h->str);
+		h = h->next;
+		s++;
 	}
+
+	return (s);
+}
 
