@@ -1,30 +1,28 @@
 #include "lists.h"
-#include <stdio.h>
 
 /**
-* print_list - Prints linked list
-*
-* @h: Points to struct
-*
-* Return: Integer
+ * add_node_end - Adds a new node at the end of a list
+ *@head: pointer to the head of the list
+ *@str: string to be added to the list
+ *
+ *Return: NULL in case of failure
+ *or address or the element
 */
 
-size_t print_list(const list_t *h)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	unsigned int index = 0;
-	const list_t *list  = NULL;
+	char *dup;
+	int len;
+	list_t *new, *last;
 
-	list = h;
-	while (list != NULL)
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
+		return (NULL);
+
+	dup = strdup(str);
+	if (str == NULL)
 	{
-		if (list->str == NULL)
-		{
-			printf("[0] (nil)\n");
-		}
-		else
-			printf("[%d] %s\n", list->len, list->str);
-		list = list->next;
-		index++;
+		free(new);
+		return (NULL);
 	}
-	return (index);
-}
+
