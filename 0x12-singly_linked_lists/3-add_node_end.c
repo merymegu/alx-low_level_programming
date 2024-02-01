@@ -9,40 +9,15 @@
  *@str: pointer to string we want to print
  * Return: the address of the new element
  */
-list_t *add_node_end(list_t **head, const char *str)
+size_t list_len(const list_t *h)
 {
-	char *dup;
-	int len;
-	list_t *new, *last;
+	size_t count = 0;
 
-	new = malloc(sizeof(list_t));
-	if (new == NULL)
-		return (NULL);
-
-	dup = strdup(str);
-	if (str == NULL)
+	while (h)
 	{
-		free(new);
-		return (NULL);
+		count++;
+		h = h->next;
 	}
-
-	for (len = 0; str[len];)
-		len++;
-
-	new->str = dup;
-	new->len = len;
-	new->next = NULL;
-
-	if (*head == NULL)
-		*head = new;
-
-	else
-	{
-		last = *head;
-		while (last->next != NULL)
-			last = last->next;
-		last->next = new;
-	}
-
-	return (*head);
+	return (count);
 }
+
