@@ -6,17 +6,15 @@
 * Return: 0
 *
 */
+
 size_t listint_len(const listint_t *h)
 {
+	unsigned int index = 0;
 
-        int i;
-
-	i = 0;
 	while (h != NULL)
 	{
-
-		i++;
 		h = h->next;
+		index++;
 	}
-	return (i);
+	return (index);
 }
