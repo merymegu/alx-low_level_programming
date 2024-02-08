@@ -1,10 +1,11 @@
-
 #include "main.h"
+
 /**
- * print_binary - Prints the binary representation of a number.
- * @n: The number to be printed in binary.
+ * binary_to_uint - Converts binary to unsigned int
  *
- *  Return: the converted number.
+ * @b: Pointer to string of chars
+ *
+ * Return: Converted number
  */
 unsigned int binary_to_uint(const char *b)
 {
